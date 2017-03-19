@@ -179,11 +179,13 @@ void DrawBoxByPolygon(HDC pHDC
 	, int dx
 	, int dy)
 {
+	//회전 비율
 	count = (count++) % 500;
 
 	ratio = count + 1;
 	double rad = (2 * pi * ratio) / 500;
 
+	//기준점으로부터 회전을 그림
 	int x = anchorX + (int)RotateX(-dx,dy,rad);
 	int y = anchorY + (int)RotateY(-dx, dy,rad);
 	int x1 = anchorX + (int)RotateX(dx, dy,rad);
@@ -198,11 +200,6 @@ void DrawBoxByPolygon(HDC pHDC
 	LineTo(pHDC, x2, y2);
 	LineTo(pHDC, x3, y3);
 	LineTo(pHDC, x, y);
-	//MoveToEx(pHDC, (int)RotateX(x, y), (int)RotateY(x, y), nullptr);
-	//LineTo(pHDC, (int)RotateX(x1, y), (int)RotateY(x1, y));
-	//LineTo(pHDC, (int)RotateX(x1, y1), (int)RotateY(x1, y1));
-	//LineTo(pHDC, (int)RotateX(x, y1), (int)RotateY(x, y1));
-	//LineTo(pHDC, (int)RotateX(x, y), (int)RotateY(x, y));
 
 }
 
